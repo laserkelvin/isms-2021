@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Deep Representation Learning of Spectroscopic Graphs</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/minimalist.css">
+		<link rel="stylesheet" href="dist/theme/skelet.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div>
+						<x-grid columns=4 ai="center">
+							<x-col span="row">
+								<div>
+									<h1 class="r-fit-text">Deep Representation Learning</h1>
+								</div>
+							</x-col>
+							<x-col span="row">
+								<div>
+									<h2 class="r-fit-text">of Spectroscopic Graphs</h2>
+								</div>
+							</x-col>
+							<x-col span="row"><hr class="full"></x-col>
+							<x-col span="row">
+								<ul class="inline">
+									<li><span><i>Kelvin Lee</i></span>,</li>
+									<li>Christine Li,</li>
+									<li>Brett McGuire,</li>
+									<li>Kyle Crabtree</li>
+								</ul>
+							</x-col>
+							<x-col span=4><h3>ISMS 2021&mdash;Talk FF09</h3></x-col>
+						</x-grid>
+					</div>
+				</section>
+				<section>
+					<x-grid columns=8 ai="center">
+						<x-col span=1+2>
+							<h1>ToC</h1>
+						</x-col>
+						<x-col span=4.. ps="start">
+							<ol>
+								<li>Introduction</li>
+								<li>Graph neural networks</li>
+								<li>Representation learning</li>
+								<li>Conclusions</li>
+							</ol>
+						</x-col>
+					</x-grid>
+				</section>
+				<section>
+					<section>
+						<x-grid columns=3>
+							<x-col span="row">
+								<h1 class="r-fit-text">Molecular spectra at scale</h1>
+							</x-col>
+							<x-col>
+								<p>Complex mixtures</p>
+							</x-col>
+							<x-col>
+								<p>Unknown molecule discovery</p>
+							</x-col>
+							<x-col>
+								<p>Chemical physics</p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1 class="r-fit-text">Applying machine learning to spectra</h1>
+						<hr class="full">
+						<p>Models are only as good as how the data is represented!</p>
+						<x-grid columns=2 ai="center">
+							<x-col>
+								<p>Frequency vs. Intensity</p>
+							</x-col>
+							<x-col>
+								<ul>
+									<li>Ordering</li>
+									<li>Completeness</li>
+									<li>Scalability</li>
+								</ul>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>Spectroscopic graphs</h1>
+						<figure><img src="assets/graphs/bipartite_structure.png" alt=""></figure>
+					</section>
+					<section>
+						<h1>Spectroscopic graphs</h1>
+						<figure><img src="assets/graphs/projected_structure.png" alt=""></figure>
+					</section>
+					<section>
+						<h1>Why so complicated?</h1>
+						<x-grid columns=3 ai="center">
+							<x-col>
+								<p>Unified encodings</p>
+							</x-col>
+							<x-col>
+								<p>Data compression</p>
+							</x-col>
+							<x-col>
+								<p>Complex mixture analysis</p>
+							</x-col>
+							<x-col>
+								<p>$J, K_a, \lambda, F, \omega, +$</p>
+							</x-col>
+							<x-col>
+								<p>$A,B,C \rightarrow \nu, I$</p>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/graphs/complex-mixture.png" alt=""></figure>
+							</x-col>
+							<x-col span="row">
+								<b>Applying deep neural networks to analyze/generate molecular spectra</b>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>Open questions</h1>
+						<x-grid columns=2>
+							<x-col>
+								<i>What can we/models learn from graph representations?</i>
+							</x-col>
+							<x-col>
+								<i>Can we reconstruct spectroscopic graphs from limited information?</i>
+							</x-col>
+						</x-grid>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Data generation</h1>
+						<x-grid columns=3 ai="center">
+							<x-col>
+								<p>Uniform sampling in $\kappa$ with fixed $A$ constant</p>
+							</x-col>
+							<x-col>
+								<p>Rigid rotor Hamiltonian from SPCAT</p>
+							</x-col>
+							<x-col>
+								<p>230 graphs per second on Nvidia 3080</p>
+								<p>83,000 nodes, ~330,000 edges</p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>Graph neural networks</h1>
+						<x-grid columns=3>
+							<x-col>
+								<p>Symmetry properties</p>
+							</x-col>
+							<x-col>
+								<p>Non-uniformity</p>
+							</x-col>
+							<x-col>
+								<p>Inductive bias</p>
+							</x-col>
+							<x-col>
+								<em>Permutation invariance</em>
+							</x-col>
+							<x-col>
+								<em>Ungriddable data</em>
+							</x-col>
+							<x-col>
+								<em>Generalizable models</em>
+							</x-col>
+							<x-col span="row">
+								<hr class="full">
+							</x-col>
+							<x-col span="row">
+								<p><b>Learning on multiple scales: from local neighborhoods to graphs</b></p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>Node embedding</h1>
+						<figure>
+							<img src="assets/graphs/graph-convolution.png">
+							<figcaption><p>Aggregates information from up to <i>K</i> neighbors per node</p></figcaption>
+						</figure>
+					</section>
+					<section>
+						<h1>Graph regression</h1>
+						<x-grid columns=2 ai="center">
+							<x-col>
+								Collective information for entire graphs used to predict spectroscopic parameters
+							</x-col>
+							<x-col>
+								<figure><img src="assets/graphs/notitle_projected_structure.png" alt=""></figure>
+								<figcaption><p>$\rightarrow A, B, C$</p></figcaption>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>Autoencoders</h1>
+						<p>Model learns to encode information needed to reconstruct topology and rotational constants</p>
+					</section>
+					<section>
+						<figure>
+							<img src="assets/graphs/graph_subsampling.png" alt="">
+							<figcaption>Model trained on subgraphs with missing edges</figcaption>
+						</figure>
+					</section>
+					<section>
+						<h1>Model Architecture</h1>
+						<div class="mermaid">
+							graph LR
+								Graph-->Subgraph
+								Subgraph-->Convolution
+								Convolution-->Embedding
+								Embedding-->AdjacencyMatrix
+								Embedding-->Pooling
+								Pooling-->RotationalConstants
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Self-supervised representations</h1>
+						<hr class="full">
+						<p>What do graph neural networks learn from spectroscopic graphs?</p>
+					</section>
+					<section>
+						<h1>Unsupervised manifold learning</h1>
+						<x-grid columns=2 ai="center">
+							<x-col>
+								<p>Topology preserving projection of high dimensional embeddings</p>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/graphs/umap-mammoth.png" alt="">
+									<figcaption><small>https://pair-code.github.io/understanding-umap/</small></figcaption>
+								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>What to look for</h1>
+						<x-grid columns=2 ai="center">
+							<x-col>
+								<p>Local patterns</p>
+							</x-col>
+							<x-col>
+								<ul>
+									<li>Clustering of similar nodes</li>
+									<li>Connectivity</li>
+								</ul>
+							</x-col>
+							<x-col>
+								<p>Large scale patterns</p>
+							</x-col>
+							<x-col>
+								<ul>
+									<li>Relative locations of clusters</li>
+									<li>Smooth progressions</li>
+								</ul>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<figure>
+							<img src="assets/graphs/tag-rigid-rotor-energy.png">
+							<figcaption><p>Topology of node embeddings contain energy information</p></figcaption>
+						</figure>
+					</section>
+					<section>
+						<figure>
+							<img src="assets/graphs/tag-rigid-rotor-tauj.png">
+							<figcaption><p>Topology of node embeddings contain quantum number information</p></figcaption>
+						</figure>
+					</section>
+					<section>
+						<figure>
+							<img src="assets/graphs/tag-rigid-rotor-degree.png">
+							<figcaption><p>Topology of node embeddings contain neighborhood information</p></figcaption>
+						</figure>
+					</section>
+					<section>
+						<x-grid columns=3 ai="center">
+							<x-col span=2>
+								<figure>
+									<img src="assets/graphs/tag-graph-umap.png" alt="">
+								</figure>
+							</x-col>
+							<x-col>
+								<figcaption>
+									<p>2000 graphs from validation set</p>
+									<p>Graph embeddings contain asymmetry information</p>
+								</figcaption>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>Reconstructed graphs</h1>
+						<hr class="full">
+						<p class="r-fit-text">How accurate/precise are the models in reproducing spectroscopic parameters and linkage?</p>
+					</section>
+					<section>
+						<x-grid columns=2 ai="center">
+							<x-col>
+								<p>Dependent variables for spectroscopic parameter estimation</p>
+								<ul>
+									<li>Typical accuracy ~20% for $B, C$</li>
+									<li>Correlated with # nodes/edges</li>
+									<li>Invariant to energy scale</li>
+								</ul>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/graphs/tag-rotconstants-accuracy.png" alt=""></figure>
+							</x-col>
+						</x-grid>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Conclusions</h1>
+						<p>Graph neural networks able to learn information-rich node embeddings</p>
+						<p></p>
+					</section>
+				</section>
+				<section>
+					<x-grid columns=4 ai="center">
+						<x-col span="row">
+							<p>People</p>
+						</x-col>
+						<x-col span="row">
+							<h1>Acknowledgements</h1>
+						</x-col>
+						<x-col span=2+1>
+							<figure><img src="assets/mit-logo.png" alt=""></figure>
+						</x-col>
+					</x-grid>
+				</section>
+			</div>
+		</div>
+
+		<script src="plugin/skelet/app.js"></script>
+		<script src="plugin/skelet/modules.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+		<script>
+			$(document).load(function() {
+				mermaid.initialize();
+			});
+		</script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				transition: 'fade',
+				transitionSpeed: 'slow',
+				controlsLayout: 'edges',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath]
+			});
+		</script>
+	</body>
+	<footer>
+		<p>Huerrangklaemg</p>
+	</footer>
+</html>
