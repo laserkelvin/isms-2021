@@ -7,23 +7,44 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="dist/theme/minimalist.css">
     <link rel="stylesheet" href="dist/theme/skelet.css">
-
-    <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="dist/css/theme/minimalist.css">
 </head>
 <body>
     <section>
-        <x-grid columns=3>
-            <x-col>
-                <a href="spec-graph.html"><p>FF09</p></a>
+        <div align="center">
+            <h1>ISMS&mdash;2021</h1>
+            <h2>Talks by Kelvin Lee</h2>
+            <p>Below are links to the slide decks for talks I gave at the International Symposium on Molecular Spectroscopy in 2021.</p>
+        <hr class="full">
+        <x-grid columns=2 align="center" ai="center">
+            <x-col js="center">
+                <figure><img src="assets/graphs/graph_subsampling.png" alt=""></figure>
             </x-col>
             <x-col>
-                <a href="umda.html"><p>RC03</p></a>
+                <a href="spec-graph.html"><h1>FF09</h1></a>
+                <h2>Spectroscopic graph neural networks</h2>
             </x-col>
             <x-col>
-                <a href="molecule-identification.html"><p>FF02</p></a>
+                <a href="umda.html"><h1>RC03</h1></a>
+                <h2>Astrochemical forecasting</h2>
+            </x-col>
+            <x-col js="center">
+                <figure><img src="assets/umda/umap_tmc1_viz_alllabel.png" alt=""></figure>
+            </x-col>
+            <x-col js="center">
+                <figure><img src="assets/molecule-id/toc_graphic.png" alt=""></figure>
+            </x-col>
+            <x-col>
+                <a href="molecule-identification.html"><h1>FF02</h1></a>
+                <h2>Unknown molecule identification</h2>
             </x-col>
         </x-grid>
+        <div>
+            <hr class="full">
+            <p>The schedule for talks that I am co-author is embedded below:</p>
+            <iframe src="http://isms.illinois.edu/schedule/2021_schedule_author.php?pID=4907" style="width: 100vw; height: 500px"></iframe>
+        </div>
+    </div>
     </section>
     <script src="plugin/skelet/app.js"></script>
     <script src="plugin/skelet/modules.js"></script>
