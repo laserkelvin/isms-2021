@@ -10,6 +10,8 @@
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/minimalist.css">
 		<link rel="stylesheet" href="dist/theme/skelet.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -65,6 +67,15 @@
 								<h1 class="r-fit-text">Molecular spectra at scale</h1>
 							</x-col>
 							<x-col>
+								<figure><img src="assets/graphs/complex_mixture_separation.svg" alt=""></figure>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/molecule-id/toc_graphic.png" alt=""></figure>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/graphs/benzene-spectrum.png" alt=""></figure>
+							</x-col>
+							<x-col>
 								<p>Complex mixtures</p>
 							</x-col>
 							<x-col>
@@ -72,6 +83,9 @@
 							</x-col>
 							<x-col>
 								<p>Chemical physics</p>
+							</x-col>
+							<x-col span="row">
+								<b>Processing/coping with large volumes of data</b>
 							</x-col>
 						</x-grid>
 					</section>
@@ -81,13 +95,16 @@
 						<p>Models are only as good as how the data is represented!</p>
 						<x-grid columns=2 ai="center">
 							<x-col>
-								<p>Frequency vs. Intensity</p>
+								<figure>
+									<img src="assets/graphs/benzene-spectrum.png" alt="">
+									<figcaption><p>Conventional frequency vs. intensity</p></figcaption>
+								</figure>
 							</x-col>
 							<x-col>
 								<ul>
-									<li>Ordering</li>
+									<li>Ordering and scale</li>
 									<li>Completeness</li>
-									<li>Scalability</li>
+									<li>Computational scaling</li>
 								</ul>
 							</x-col>
 						</x-grid>
@@ -150,7 +167,8 @@
 							</x-col>
 							<x-col>
 								<p>230 graphs per second on Nvidia 3080</p>
-								<p>83,000 nodes, ~330,000 edges</p>
+								<p>83,000 nodes, ~330,000 edges per batch (32 graphs)</p>
+								<p>$E, J, K_a, K_c$ embedded per node</p>
 							</x-col>
 						</x-grid>
 					</section>
@@ -203,17 +221,13 @@
 						</x-grid>
 					</section>
 					<section>
-						<h1>Autoencoders</h1>
-						<p>Model learns to encode information needed to reconstruct topology and rotational constants</p>
-					</section>
-					<section>
 						<figure>
 							<img src="assets/graphs/graph_subsampling.png" alt="">
 							<figcaption>Model trained on subgraphs with missing edges</figcaption>
 						</figure>
 					</section>
 					<section>
-						<h1>Model Architecture</h1>
+						<h1>Graph autoencoder</h1>
 						<div class="mermaid">
 							graph LR
 								Graph-->Subgraph
@@ -294,7 +308,7 @@
 							</x-col>
 							<x-col>
 								<figcaption>
-									<p>2000 graphs from validation set</p>
+									<p class="r-fit-text">2000 graphs from validation set</p>
 									<p>Graph embeddings contain asymmetry information</p>
 								</figcaption>
 							</x-col>
@@ -320,24 +334,66 @@
 							</x-col>
 						</x-grid>
 					</section>
+					<section>
+						<h1>Link prediction</h1>
+						<x-grid columns=2 ai="center">
+							<x-col>
+								<p>Simple A/B testing indicates >95% ROC AUC score (i.e. correct linkage prediction 95% of the time)</p>
+								<p class="r-fit-text">Energy levels are incredibly sparse&mdash;not the true error!</p>
+								<p>Need to use dense adjacency training</p>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/graphs/tag-adjacency-prediction.png" alt=""></figure>
+							</x-col>
+						</x-grid>
+					</section>
 				</section>
 				<section>
 					<section>
 						<h1>Conclusions</h1>
-						<p>Graph neural networks able to learn information-rich node embeddings</p>
-						<p></p>
+						<hr class="full">
+						<p>Graph neural networks able to learn information-rich node and graph embeddings</p>
+						<p>Linkage prediction is far from accurate&mdash;need to revise training strategy</p>
+						<p>Applying graph principles toward automating spectral analysis</p>
 					</section>
 				</section>
 				<section>
 					<x-grid columns=4 ai="center">
-						<x-col span="row">
-							<p>People</p>
+						<x-col span="row" style="display: flex">
+							<figure><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Pvyx8-QWdo_WBghNOd-zGAHaBe%26pid%3DApi&f=1https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png" alt="" style="max-width: 350px;"></figure>
+							<figure><img src="https://raw.githubusercontent.com/rusty1s/pytorch_geometric/master/docs/source/_static/img/pyg_logo_text.svg?sanitize=true" alt="" style="max-width: 300px"></figure>
 						</x-col>
 						<x-col span="row">
 							<h1>Acknowledgements</h1>
 						</x-col>
 						<x-col span=2+1>
 							<figure><img src="assets/mit-logo.png" alt=""></figure>
+						</x-col>
+						<x-col>
+							<figure><img src="https://communicationsguide.ucdavis.edu/sites/g/files/dgvnsk6246/files/inline-images/ucdavis_logo_3_gold.gif" alt=""></figure>
+						</x-col>
+					</x-grid>
+				</section>
+				<section>
+					<h1>Thank you!</h1>
+					<x-grid columns=2 ai="center">
+						<x-col>
+							<p><i class="fa fa-github" style="font-size: 3em;"></i></p>
+						</x-col>
+						<x-col js="start">
+							<p><a href="https://laserkelvin.github.io">github.com/laserkelvin</a></p>
+						</x-col>
+						<x-col>
+							<p><i class="fa fa-twitter" style="font-size: 3em;"></i></p>
+						</x-col>
+						<x-col js="start">
+							<p><a href="https://twitter.com/cmmmsubmm">@cmmmsubmm</a></p>
+						</x-col>
+						<x-col>
+							<p><i class="fa ai ai-google-scholar" style="font-size: 3em;"></i></p>
+						</x-col>
+						<x-col js="start">
+							<p><a href="https://scholar.google.com/citations?hl=en&user=cB90fKUAAAAJ&view_op=list_works&sortby=pubdate">Google scholar</a></p>
 						</x-col>
 					</x-grid>
 				</section>
@@ -372,7 +428,4 @@
 			});
 		</script>
 	</body>
-	<footer>
-		<p>Huerrangklaemg</p>
-	</footer>
 </html>
