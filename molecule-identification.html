@@ -59,13 +59,121 @@
 				</section>
 				<section>
 					<section>
-						<div class="mermaid">
-							graph TD
-							A --> B & C
-							B --> D
-							C --> F
+						<h1>Complex discharge mixtures</h1>
+						<div align=center>
+							<figure>
+								<img src="assets/graphs/complex_mixture_separation.svg" alt="">
+								<figcaption>Incredibly rich spectroscopic discovery space of microwave discharge assays</figcaption>
+							</figure>
 						</div>
 					</section>
+					<section>
+						<h1 class="r-fit-text">Three components of analysis</h1>
+						<x-grid columns=3 ai="center">
+							<x-col>
+								<p>Line identification</p>
+							</x-col>
+							<x-col>
+								<p>Line assignment</p>
+							</x-col>
+							<x-col>
+								<p>Molecule identification</p>
+							</x-col>
+							<x-col span="row" js="center">
+								<figure>
+									<img src="assets/molecule-id/toc_graphic.png" alt="">
+									<figcaption><p><b>The most time consuming and ill-defined step!</b></p></figcaption>
+								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>Molecule identification</h1>
+						<x-grid columns=1 ai="center">
+							<x-col js="center">
+								<figure>
+									<img style="width: 30vw;" src="assets/molecule-id/information-entropy.png" alt="">
+								</figure>
+							</x-col>
+							<x-col>
+								<p>Experimentally determined spectroscopic parameters are uninformative</p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1 class="r-fit-text">Mapping constants to structures</h1>
+						<x-grid columns=2>
+							<x-col>
+								<p>Databases</p>
+							</x-col>
+							<x-col>
+								<p>Machine learning</p>
+							</x-col>
+							<x-col>
+								<ul>
+									<li>Mass spectrometry</li>
+									<li>Fast&mdash;nearest-neighbor lookup</li>
+									<li>Uniform accuracy</li>
+									<li>Static</li>
+								</ul>
+							</x-col>
+							<x-col>
+								<ul>
+									<li>Drug discovery</li>
+									<li>Slower, but more modeling flexibility</li>
+									<li>Sampling dependent accuracy</li>
+									<li>Generative</li>
+								</ul>
+							</x-col>
+							<x-col span="row">
+								<b>Deep learning as an attractive solution to generative molecule identification</b>
+							</x-col>
+						</x-grid>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Deep neural networks</h1>
+						<x-grid columns=2 ai="center">
+							<x-col>
+								<ul>
+									<li>Universal function approximators</li>
+									<li>Parameterize (non)deterministic mapping between constants and features</li>
+									<li>Human intuition takes with sufficient information</li>
+								</ul>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/molecule-id/neuralnetworks.svg" alt=""></figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>Dataset generation</h1>
+						<x-grid columns=2>
+							<x-col>
+								<ul>
+									<li>Molecules systematically generated using Open Molecule Generator</li>
+									<li>Up to 2,000 structures per formula, up to $\mathrm{H_{18}C_8O_3N_3}$</li>
+									<li>$\omega$B97X-D/6-31G(d) singlet equilibrium structures</li>
+									<li>Rotational constants uncertainty used as training augmentation</li>
+								</ul>
+							</x-col>
+							<x-col></x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid ai="center">
+							<x-col span="row">
+								<figure>
+									<img src="assets/molecule-id/architecture_graphic.png" alt="">
+									<figcaption>From $A, B, C$ to identifying features</figcaption>
+								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+				</section>
+				<section>
+					<h1>Eigenspectrum prediction</h1>
 				</section>
 				<section>
 					<article>
@@ -114,7 +222,9 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+		<script>mermaid.initialize({startOnLoad:true});</script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -126,10 +236,9 @@
 				transitionSpeed: 'slow',
 				controlsLayout: 'edges',
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
 			});
 		</script>
-		<script>mermaid.initialize({startOnLoad:true});</script>
 	</body>
 	<footer>
 		<p>Huerrangklaemg</p>
