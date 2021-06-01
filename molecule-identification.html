@@ -49,8 +49,7 @@
 								<ol>
 									<li>Introduction</li>
 									<li>Probabilistic Deep Learning</li>
-									<li>What it can do</li>
-									<li>What it can't do</li>
+									<li>What it can and can't do</li>
 									<li>Conclusions</li>
 								</ol>
 							</x-col>
@@ -196,16 +195,16 @@
 						<hr class="full">
 						<x-grid columns=4>
 							<x-col>
-								<p>Pure hydrocarbons</p>
+								<p style="color: #98c9ed; font-weight: 600;">Pure hydrocarbons</p>
 							</x-col>
 							<x-col>
-								<p>Oxygen-bearing species</p>
+								<p style="color: #be6a76; font-weight: 600;">Oxygen-bearing species</p>
 							</x-col>
 							<x-col>
-								<p>Nitrogen-bearing species</p>
+								<p style="color: #dcd086; font-weight: 600;">Nitrogen-bearing species</p>
 							</x-col>
 							<x-col>
-								<p>Oxygen/nitrogen-bearing species</p>
+								<p style="color: #4b834b; font-weight: 600;">Oxygen/nitrogen-bearing species</p>
 							</x-col>
 						</x-grid>
 					</section>
@@ -267,12 +266,33 @@
 						</div>
 					</section>
 					<section>
-						<div align=center>
-							<figure>
-								<img src="" alt="">
-								<figcaption></figcaption>
-							</figure>
-						</div>
+						<x-grid columns=7 ai="center">
+							<x-col span=1+2>
+								<p>Multiclass classification for functional group identification</p>
+								<p>Intuition from formula + functional group</p>
+							</x-col>
+							<x-col span=4+4>
+								<figure>
+									<img style="width: 35vw;" src="assets/molecule-id/torch-combined-demonstration.png" alt="">
+									<figcaption></figcaption>
+								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid columns=2 ai="center">
+							<x-col span="row" js="center">
+								<h1>Areas for improvement</h1>
+							</x-col>
+							<x-col>
+								<p>Single model approach</p>
+								<i>Faster training/inference</i>
+							</x-col>
+							<x-col>
+								<p>Constants to molecular graph mapping</p>
+								<i>End-to-end pipeline for molecule identification</i>
+							</x-col>
+						</x-grid>
 					</section>
 					<section>
 						<div align=center>
@@ -285,7 +305,7 @@
 				<section>
 					<section>
 						<h1>Conclusions</h1>
-						<x-grid columns=4>
+						<x-grid columns=3>
 							<x-col>
 								<p>Uncertainty aware deep learning model for molecule identification</p>
 							</x-col>
@@ -293,23 +313,33 @@
 								<p>Experimentally determinable parameters</p>
 							</x-col>
 							<x-col>
-								<p>Functional interface in PySpecTools</p>
-							</x-col>
-							<x-col>
-								<p>Generative graph models&mdash;direct to structures</p>
+								<p>Fast, functional interface in <a href="https://github.com/laserkelvin/pyspectools">PySpecTools</a></p>
 							</x-col>
 						</x-grid>
 					</section>
 					<section>
 						<x-grid columns=4 ai="center">
 							<x-col span="row">
-								<p>People</p>
+								<x-flex direction=row ai="center" jc="center">
+									<x-col>AST-1615847</x-col>
+									<x-col>AST-1908576</x-col>
+									<x-col>NASA-NNX13AE59G</x-col>
+									<x-col>NASA-80NSSC18K0396</x-col>
+									<x-col>Smithsonian Institution Hydra Cluster</x-col>
+								</x-flex>
 							</x-col>
 							<x-col span="row">
 								<h1>Acknowledgements</h1>
 							</x-col>
-							<x-col span=2+1>
-								<figure><img src="assets/mit-logo.png" alt=""></figure>
+							<x-col span="row">
+								<x-flex direction=row ai=center jc="center">
+								<x-col>
+									<figure><img style="width: 20vw;" src="assets/mit-logo.png" alt=""></figure>
+								</x-col>
+								<x-col>
+									<figure><img style="width: 20vw;" src="assets/cfa-logo-transparent.png" alt=""></figure>
+								</x-col>
+								</x-flex>
 							</x-col>
 						</x-grid>
 					</section>
