@@ -82,7 +82,9 @@
 							<x-col span="row" js="center">
 								<figure>
 									<img src="assets/molecule-id/toc_graphic.png" alt="">
-									<figcaption><p><b>The most time consuming and ill-defined step!</b></p></figcaption>
+									<figcaption><p><b>The most time consuming and ill-defined step!</b></p>
+										<p>McCarthy & Lee, <i>JPCA</i>, 2020(124) 3002</p>
+									</figcaption>
 								</figure>
 							</x-col>
 						</x-grid>
@@ -140,6 +142,7 @@
 									<li>Universal function approximators</li>
 									<li>Parameterize (non)deterministic mapping between constants and features</li>
 									<li>Human intuition takes with sufficient information</li>
+									<li>Variational inference</li>
 								</ul>
 							</x-col>
 							<x-col>
@@ -158,7 +161,23 @@
 									<li>Rotational constants uncertainty used as training augmentation</li>
 								</ul>
 							</x-col>
-							<x-col></x-col>
+							<x-col>
+								<p class="r-fit-text">Structures encoded as Coulomb matrix eigenspectra</p>
+								<p>$M_{ij} = \begin{cases} 
+									0.5Z^{2.4}_i & \text{for}~i = j\\
+									\frac{Z_iZ_j}{\vert \mathbf{R}_i - \mathbf{R}_j} & \text{for}~i \neq j\\
+									\end{cases}$</p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid columns=2 ai="center">
+							<x-col span="row">
+								<figure>
+									<img src="assets/molecule-id/eigenspectra-comparison.png" alt="">
+									<figcaption><p>Ten largest eigenvalues for structurally similar species</p></figcaption>
+								</figure>
+							</x-col>
 						</x-grid>
 					</section>
 					<section>
@@ -166,17 +185,122 @@
 							<x-col span="row">
 								<figure>
 									<img src="assets/molecule-id/architecture_graphic.png" alt="">
-									<figcaption>From $A, B, C$ to identifying features</figcaption>
+									<figcaption>From experimental data to identifying features</figcaption>
 								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1>No free lunch</h1>
+						<p>Models trained on four subdatasets</p>
+						<hr class="full">
+						<x-grid columns=4>
+							<x-col>
+								<p>Pure hydrocarbons</p>
+							</x-col>
+							<x-col>
+								<p>Oxygen-bearing species</p>
+							</x-col>
+							<x-col>
+								<p>Nitrogen-bearing species</p>
+							</x-col>
+							<x-col>
+								<p>Oxygen/nitrogen-bearing species</p>
 							</x-col>
 						</x-grid>
 					</section>
 				</section>
 				<section>
-					<h1>Eigenspectrum prediction</h1>
+					<section>
+						<h1>Quantitative testing</h1>
+						<hr class="full">
+						<p>Use benzene as quantitative testing of model behaviors</p>
+					</section>
+					<section>
+						<div align=center>
+							<h1>Eigenspectrum regression</h1>
+							<figure>
+								<img style="width: 25vw;" src="assets/molecule-id/torch-spectra-benzene.png" alt="">
+								<figcaption>
+									<p>The most critical step&mdash;eigenspectra encodes approximate structure and atom composition</p>
+								</figcaption>
+							</figure>
+						</div>
+					</section>
+					<section>
+						<div align=center>
+							<h1>What matters most?</h1>
+							<figure>
+								<img style="max-width: 30vw;" src="assets/molecule-id/torch-input-grads.png" alt="">
+								<figcaption><p>Input gradients indicate $\kappa$ and the dipole moments are most important to the structure</p></figcaption>
+							</figure>
+						</div>
+					</section>
+					<section>
+						<h1>Decoding the eigenspectrum</h1>
+						<hr class="full">
+						<p>Extracting identifying information from the Coulomb eigenspectrum encoding</p>
+					</section>
+					<section>
+						<h1>Molecular formula</h1>
+						<x-grid columns=2 ai="center">
+							<x-col>
+								<ul>
+									<li>Rotational constants <i class="fa fa-arrow-right"></i> Formula</li>
+									<li>Hydrcarbon model predicts correct formula within uncertainty</li>
+									<li>Remaining models yield roughly the correct mass</li>
+								</ul>
+							</x-col>
+							<x-col>
+								<figure>
+									<img src="assets/molecule-id/torch-formula-benzene.png" alt="">
+								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<div align=center>
+							<figure>
+								<img style="width: 25vw;" src="assets/molecule-id/torch-benzene-massspec.png" alt="">
+								<figcaption><p>Converted formulae are comparable to mass spectrometry!</p></figcaption>
+							</figure>
+						</div>
+					</section>
+					<section>
+						<div align=center>
+							<figure>
+								<img src="" alt="">
+								<figcaption></figcaption>
+							</figure>
+						</div>
+					</section>
+					<section>
+						<div align=center>
+							<h1>Available now!</h1>
+							<hr class="full">
+							<iframe src="https://laserkelvin.github.io/PySpecTools/examples/identifying_molecules.html" style="width: 70vw; height: 500px;"></iframe>
+						</div>
+					</section>
 				</section>
 				<section>
-					<article>
+					<section>
+						<h1>Conclusions</h1>
+						<x-grid columns=4>
+							<x-col>
+								<p>Uncertainty aware deep learning model for molecule identification</p>
+							</x-col>
+							<x-col>
+								<p>Experimentally determinable parameters</p>
+							</x-col>
+							<x-col>
+								<p>Functional interface in PySpecTools</p>
+							</x-col>
+							<x-col>
+								<p>Generative graph models&mdash;direct to structures</p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
 						<x-grid columns=4 ai="center">
 							<x-col span="row">
 								<p>People</p>
@@ -188,7 +312,7 @@
 								<figure><img src="assets/mit-logo.png" alt=""></figure>
 							</x-col>
 						</x-grid>
-					</article>
+					</section>
 				</section>
 				<section>
 					<h1>Thank you!</h1>
@@ -223,6 +347,7 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script src="plugin/math/math.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 		<script>mermaid.initialize({startOnLoad:true});</script>
 		<script>
@@ -236,7 +361,7 @@
 				transitionSpeed: 'slow',
 				controlsLayout: 'edges',
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath, RevealZoom ]
 			});
 		</script>
 	</body>
