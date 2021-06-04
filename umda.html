@@ -36,8 +36,8 @@
 									<li><span><i>Kelvin Lee</i></span>,</li>
 									<li>Jacqueline Patterson,</li>
 									<li>Andrew Burkhardt,</li>
-									<li>Michael McCarthy</li>
-									<li>Brett McGuire,</li>
+									<li>Michael McCarthy,</li>
+									<li>Brett McGuire</li>
 								</ul>
 							</x-col>
 							<x-col span=4><h3>ISMS 2021&mdash;Talk RC03</h3></x-col>
@@ -54,7 +54,6 @@
 								<ol>
 									<li>Introduction</li>
 									<li>Machine representations of molecules</li>
-									<li>Identifying molecules of interest</li>
 									<li>Predicting the astrochemical future</li>
 									<li>Conclusions</li>
 								</ol>
@@ -64,38 +63,346 @@
 				</section>
 				<section>
 					<section>
-						<h1>Introduction</h1>
+						<x-grid columns=3 ai=center>
+							<x-col span="row">
+								<h1 class="r-fit-text">Molecules in space</h1>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/umda/Glycine.png" alt=""></figure>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/umda/dustimage.jpg" alt=""></figure>
+							</x-col>
+							<x-col>
+								<figure><img src="https://public.nrao.edu/wp-content/uploads/2009/02/imagessquared2009gbtmoleculestitles09_squared.jpg" alt=""></figure>
+							</x-col>
+							<x-col span="row">
+								<p>From origins of life to star formation</p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<h1 class="r-fit-text">Pushing the boundaries of molecular complexity</h1>
+						<x-grid columns=2 ai=center>
+							<x-col>
+								<figure><img src="assets/umda/detections-by-year.svg" alt=""></figure>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/umda/complexity-by-year.svg" alt=""></figure>
+							</x-col>
+							<x-col span=row>
+								<p>See talk RC06 by Brett McGuire for the most up to date numbers!</p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid columns=2 ai=end>
+							<x-col span="row">
+								<h1 class="r-fit-text">What's next for astrochemistry?</h1>
+							</x-col>
+							<x-col>
+								<figure>
+									<img src="assets/umda/nozzle_portrait.jpg" alt="">
+									<figcaption>Laboratory assays</figcaption>
+								</figure>
+							</x-col>
+							<x-col>
+								<figure>
+									<img src="assets/umda/aromatic-model-production.svg" alt="">
+									<figcaption>Chemical models</figcaption>
+								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid columns=2 ai=end>
+							<x-col>
+								<figure>
+									<img src="assets/umda/complex_mixture_separation.svg" alt="">
+									<figcaption>Spectra don't come with labels!</figcaption>
+								</figure>
+							</x-col>
+							<x-col>
+								<figure>
+									<img src="assets/umda/aromatic-model-production.svg" alt="">
+									<figcaption>Models poorly reproduce aromatics!</figcaption>
+								</figure>
+							</x-col>
+							<x-col span=row>
+								<b>Need a method of systematically identifying key species!</b>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid columns=2 ai=center>
+							<x-col span=row>
+								<h1>Cheminformatics</h1>
+							</x-col>
+							<x-col span=row>
+								<div class="mermaid" align=center>
+									graph LR;
+									Databases-->Structure-Retrieval-->Screening-->Query
+								</div>
+								<p>High-throughput detection of desirable molecules from millions of candidates</p>
+								<p>Combine with machine learning to <i>recommend</i> molecules for study</p>
+							</x-col>
+						</x-grid>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h1>Machine representations of molecules</h1>
+						<x-grid columns=2 ai=center>
+							<x-col span="row">
+								<h1 class="r-fit-text">Machine representations of molecules</h1>
+							</x-col>
+							<x-col span=row>
+								<span class="space-6"></span>
+							</x-col>
+							<x-col js=center>
+								<figure>
+									<img src="assets/umda/HC3N.png" alt="">
+								</figure>
+							</x-col>
+							<x-col js=center>
+								<figure>
+									<img src="assets/umda/representation-learning-bengio.png" alt="">
+								</figure>
+							</x-col>
+							<x-col>
+								<p>Hand-picked features</p>
+							</x-col>
+							<x-col>
+								<p>Unsupervised representation learning</p>
+							</x-col>
+						</x-grid>
 					</section>
-				</section>
-				<section>
 					<section>
-						<h1>Identifying molecules of interest</h1>
+						<h1>mol2vec</h1>
+						<x-grid columns=2 ai=center>
+							<x-col>
+								<ul>
+									<li>Unsupervised language model adapted for molecule strings.</li>
+									<li>SMILES encoding transformed into <em>k</em>-neighborhood chemical environment</li>
+									<li>Generate a dictionary mapping between environments and vectors</li>
+								</ul>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/umda/smiles-demo.png" alt=""></figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid ai=center columns=3>
+							<x-col span=row>
+								<h1 class="r-fit-text">Molecule vector representations</h1>
+							</x-col>
+							<x-col span=1>
+								<p>Distance and similarity measures in Euclidean space</p>
+								<p>
+									$\cos(\theta) = \frac{\mathbf{A} \cdot \mathbf{B}}{\vert \mathbf{A} \vert \vert \mathbf{B} \vert}$
+								</p>
+							</x-col>
+							<x-col span=2+2 js=center>
+								<figure>
+									<img style="max-width: 25vw;" src="assets/umda/cosine_similarity.png" alt="">
+								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid ai=center columns=3>
+							<x-col span=row>
+								<h1 class="r-fit-text">Molecule vector representations</h1>
+							</x-col>
+							<x-col span=row>
+								<figure>
+									<img src="assets/umda/umap_tmc1_viz_alllabel.png" alt="">
+									<figcaption><p>Visualization of chemical inventory clustering and trends</p></figcaption>
+								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid ai=center columns=4>
+							<x-col span=1+2>
+								<table class="is-striped">
+									<caption>Where did we get our molecules?</caption>
+									<thead>
+										<tr>
+											<td>Source</td>
+											<td>Number of entries</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>ZINC</td>
+											<td>3,862,980</td>
+										</tr>
+										<tr>
+											<td>PubChem A</td>
+											<td>2,444,441</td>
+										</tr>
+										<tr>
+											<td>PCBA</td>
+											<td>437,929</td>
+										</tr>
+										<tr>
+											<td>QM9</td>
+											<td>133,885</td>
+										</tr>
+										<tr>
+											<td>NASA PAH database</td>
+											<td>3,139</td>
+										</tr>
+										<tr>
+											<td>KIDA</td>
+											<td>578</td>
+										</tr>
+										<tr>
+											<td>TMC-1 inventory</td>
+											<td>88</td>
+										</tr>
+									</tbody>
+								</table>
+							</x-col>
+							<x-col span=4+1>
+								<p>Total of 3,316,454 unique molecules used for mol2vec training</p>
+								<p>455,461 chosen from unsupervised clustering based on proximity to TMC-1 inventory</p>
+							</x-col>
+						</x-grid>
 					</section>
 				</section>
 				<section>
 					<section data-background="https://melmagazine.com/wp-content/uploads/2019/07/Screen-Shot-2019-07-31-at-5.47.12-PM.png">
 						<h1 style="color: #fff">Astrochemical forecasting</h1>
 					</section>
+					<section>
+						<div align=center>
+							<figure>
+								<img src="assets/umda/pipeline.svg" alt="">
+								<hr>
+								<figcaption>Data pipeline for astrochemical forecasting</figcaption>
+							</figure>
+						</div>
+					</section>
+					<section>
+						<x-grid columns=3 ai=center>
+							<x-col span="row">
+								<h1 class="r-fit-text">Reproducing chemical inventories</h1>
+							</x-col>
+							<x-col js=center>
+								<figure>
+									<img src="assets/umda/r2_plot.png" alt="">
+								</figure>
+							</x-col>
+							<x-col>
+								<p>As simple as linear regression to custom kernels in Gaussian Processes</p>
+								<p>Outperforms conventional chemical models</p>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/umda/ml_model_comparison.png" alt=""></figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<div align=center>
+							<figure>
+								<img src="assets/umda/demoset.png" alt="">
+								<figcaption><p>Model performance across chemical complexity</p></figcaption>
+							</figure>
+						</div>
+					</section>
+					<section>
+						<x-grid columns=2 ai=center>
+							<x-col>
+								<p>Predicting the abundance of potential molecules</p>
+								<p>1507 unique molecules identified from 100 nearest neighbors per molecule in TMC-1</p>
+								<p>17x the number of currently detected species</p>
+							</x-col>
+							<x-col>
+								<figure><img src="assets/umda/3d_umap_recommendations.png" alt=""></figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid columns=2 ai=center>
+							<x-col span=row>
+								<figure>
+									<img src="assets/umda/rec_umap.png" alt="">
+									<figcaption>Recommended molecules compliment existing KIDA network</figcaption>
+								</figure>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<x-grid columns=4 ai=center>
+							<x-col span=row>
+								<h1 class="r-fit-text">Molecules for laboratory and astronomical study</h1>
+								<p>Out of 1507 molecules...</p>
+							</x-col>
+							<x-col>
+								<p>59% are unsaturated</p>
+							</x-col>
+							<x-col>
+								<p>12% are pure hydrocarbons</p>
+							</x-col>
+							<x-col>
+								<p>43% contain are cyanides</p>
+							</x-col>
+							<x-col>
+								<p>New aromatics up to three rings</p>
+							</x-col>
+							<x-col span=row>
+								<p>Under review&mdash;contact me for the full list! <i class="fa fa-hand-spock-o"></i> </p>
+							</x-col>
+						</x-grid>
+					</section>
 				</section>
 				<section>
-					<article>
+					<section>
+						<x-grid columns=4>
+							<x-col span=row>
+								<h1>Where to from here?</h1>
+								<hr>
+							</x-col>
+							<x-col>
+								<p>Apply ML approach to other prototypical sources</p>
+							</x-col>
+							<x-col>
+								<p>Infer abundance of radio-invisible molecules</p>
+							</x-col>
+							<x-col>
+								<p>Guide laboratory/observation/modeling efforts</p>
+							</x-col>
+							<x-col>
+								<p>Multi-output models</p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
 						<x-grid columns=4 ai="center">
 							<x-col span="row">
-								<p>People</p>
+								<x-flex direction=row ai="center" jc="center">
+									<x-col>NASA-NNX13AE59G</x-col>
+									<x-col>NASA-80NSSC18K0396</x-col>
+									<x-col>SAO REU Program under AST-1852268 and DoD ASSURE</x-col>
+								</x-flex>
 							</x-col>
 							<x-col span="row">
 								<h1>Acknowledgements</h1>
 							</x-col>
-							<x-col span=2+1>
-								<figure><img src="assets/mit-logo.png" alt=""></figure>
+							<x-col span="row">
+								<x-flex direction=row ai=center jc="center">
+								<x-col>
+									<figure><img style="width: 20vw;" src="assets/mit-logo.png" alt=""></figure>
+								</x-col>
+								<x-col>
+									<figure><img style="width: 20vw;" src="assets/cfa-logo-transparent.png" alt=""></figure>
+								</x-col>
+								</x-flex>
 							</x-col>
 						</x-grid>
-					</article>
+					</section>
 				</section>
 				<section>
 					<h1>Thank you!</h1>
@@ -129,6 +436,8 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/math/math.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 		<script>
 			// More info about initialization & config:
@@ -141,7 +450,7 @@
 				transitionSpeed: 'slow',
 				controlsLayout: 'edges',
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom, RevealMath ]
 			});
 		</script>
 		<script>mermaid.initialize({startOnLoad:true});</script>
