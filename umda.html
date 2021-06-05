@@ -427,9 +427,42 @@
 						</x-col>
 					</x-grid>
 				</section>
+				<section>
+					<!-- This is the one-slide "lightning" fucking talk -->
+					<x-grid columns=3 ai=start>
+						<x-col span=1>
+							<figure>
+								<figcaption><p>Finding new molecules to study by intuition alone is difficult.</p></figcaption>
+								<img src="assets/umda/aromatic-model-production.svg" alt="">
+								</img>
+							</figure>
+						</x-col>
+						<x-col span=2+2>
+							<figure>
+								<figcaption><p>mol2vec brings a new way to study astrochemical inventories.</p></figcaption>
+								<img src="assets/umda/umap_tmc1_viz_alllabel.png" alt="">
+							</figure>
+						</x-col>
+					</x-grid>
+					<x-grid columns=3 ai=center>
+						<x-col span=1>
+							<figure>
+								<img src="assets/umda/smiles-demo.png" alt="">
+								<figcaption><p>Use ML to screen molecules</p></figcaption>
+							</figure>
+						</x-col>
+						<x-col>
+							<p>Identify candidates for study <em>and</em> predict their column density</p>
+						</x-col>
+						<x-col>
+							<figure style="width: 12vw;">
+								<img src="assets/umda/3d_umap_recommendations.png">
+							</figure>
+						</x-col>
+					</x-grid>
+				</section>
 			</div>
 		</div>
-
 		<script src="plugin/skelet/app.js"></script>
 		<script src="plugin/skelet/modules.js"></script>
 		<script src="dist/reveal.js"></script>
