@@ -397,9 +397,39 @@
 						</x-col>
 					</x-grid>
 				</section>
+				<!-- Stupid ass lightning talk slide -->
+				<section>
+					<x-grid columns=4 ai=center jc=center>
+						<x-col>
+							<figure>
+								<figcaption><p>Applying machine learning to molecular spectra</p></figcaption>
+								<img src="assets/graphs/benzene-spectrum.png" alt="">
+							</figure>
+						</x-col>
+						<x-col span=2+3>
+							<figure>
+								<img src="assets/graphs/tag-rigid-rotor-degree.png" alt="">
+							</figure>
+						</x-col>
+						<x-col>
+							<figure>
+								<img src="assets/graphs/projected_structure.png" alt="">
+								<figcaption><p>Use graph representations of rotational spectra</p></figcaption>
+							</figure>
+						</x-col>
+						<x-col>
+							<p>Graph/node embeddings successfully capture spectroscopic intuition</p>
+						</x-col>
+						<x-col span=3+2>
+								<figure style="width: 45vw;">
+									<img src="assets/graphs/tag-graph-umap.png">
+								</figure>
+						</x-col>
+						
+					</x-grid>
+				</section>
 			</div>
 		</div>
-
 		<script src="plugin/skelet/app.js"></script>
 		<script src="plugin/skelet/modules.js"></script>
 		<script src="dist/reveal.js"></script>
@@ -407,6 +437,7 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script src="plugin/math/math.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 		<script>
 			$(document).load(function() {
@@ -424,7 +455,7 @@
 				transitionSpeed: 'slow',
 				controlsLayout: 'edges',
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath, RevealZoom ]
 			});
 		</script>
 	</body>
