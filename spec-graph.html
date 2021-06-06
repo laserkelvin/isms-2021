@@ -45,7 +45,7 @@
 						</x-grid>
 					</div>
 				</section>
-				<section>
+				<!-- <section>
 					<x-grid columns=8 ai="center">
 						<x-col span=1+2>
 							<h1>ToC</h1>
@@ -59,66 +59,32 @@
 							</ol>
 						</x-col>
 					</x-grid>
-				</section>
+				</section> -->
 				<section>
 					<section>
-						<x-grid columns=3>
+						<x-grid columns=3 ai=center>
 							<x-col span="row">
-								<h1 class="r-fit-text">Molecular spectra at scale</h1>
+								<h1 class="r-fit-text">Scaling up molecular spectroscopy</h1>
 							</x-col>
-							<x-col>
+							<x-col span=1+2>
 								<figure><img src="assets/graphs/complex_mixture_separation.svg" alt=""></figure>
 							</x-col>
-							<x-col>
-								<figure><img src="assets/molecule-id/toc_graphic.png" alt=""></figure>
+							<x-col js=center>
+								<figure style="width: 10vw;"><img src="assets/graphs/h2cn-blk.png" alt=""></figure>
 							</x-col>
-							<x-col>
-								<figure><img src="assets/graphs/benzene-spectrum.png" alt=""></figure>
-							</x-col>
-							<x-col>
-								<p>Complex mixtures</p>
+							<x-col span=1+2>
+								<p>High-resolution, high bandwidth data</p>
 							</x-col>
 							<x-col>
 								<p>Unknown molecule discovery</p>
 							</x-col>
-							<x-col>
-								<p>Chemical physics</p>
-							</x-col>
 							<x-col span="row">
-								<b>Processing/coping with large volumes of data</b>
+								<b>Maximum information extraction from single spectra with machine learning</b>
 							</x-col>
 						</x-grid>
 					</section>
 					<section>
-						<h1 class="r-fit-text">Applying machine learning to spectra</h1>
-						<hr class="full">
-						<p>Models are only as good as how the data is represented!</p>
-						<x-grid columns=2 ai="center">
-							<x-col>
-								<figure>
-									<img src="assets/graphs/benzene-spectrum.png" alt="">
-									<figcaption><p>Conventional frequency vs. intensity</p></figcaption>
-								</figure>
-							</x-col>
-							<x-col>
-								<ul>
-									<li>Ordering and scale</li>
-									<li>Completeness</li>
-									<li>Computational scaling</li>
-								</ul>
-							</x-col>
-						</x-grid>
-					</section>
-					<section>
-						<h1>Spectroscopic graphs</h1>
-						<figure><img src="assets/graphs/bipartite_structure.png" alt=""></figure>
-					</section>
-					<section>
-						<h1>Spectroscopic graphs</h1>
-						<figure><img src="assets/graphs/projected_structure.png" alt=""></figure>
-					</section>
-					<section>
-						<h1>Why so complicated?</h1>
+						<h1 class="r-fit-text">Potential benefits from machine learning</h1>
 						<x-grid columns=3 ai="center">
 							<x-col>
 								<p>Unified encodings</p>
@@ -127,7 +93,7 @@
 								<p>Data compression</p>
 							</x-col>
 							<x-col>
-								<p>Complex mixture analysis</p>
+								<p>Mixture separation</p>
 							</x-col>
 							<x-col>
 								<p>$J, K_a, \lambda, F, \omega, +$</p>
@@ -144,33 +110,40 @@
 						</x-grid>
 					</section>
 					<section>
-						<h1>Open questions</h1>
-						<x-grid columns=2>
-							<x-col>
-								<i>What can we/models learn from graph representations?</i>
+						<h1 class="r-fit-text">Automating spectroscopic analysis</h1>
+						<hr class="full">
+						<p>Machine learning as an attractive method for data processing;</p>
+						<p>Models are only as good as how the data is represented!</p>
+						<x-grid columns=3 ai="center">
+							<x-col span=1+2>
+								<figure>
+									<img src="assets/graphs/benzene-spectrum.png" alt="">
+								</figure>
 							</x-col>
 							<x-col>
-								<i>Can we reconstruct spectroscopic graphs from limited information?</i>
+								<p>Frequency vs. intensity may be intuitive for humans, but not for machines.</p>
+								<ul>
+									<li>Ordering and scale</li>
+									<li>Missing data</li>
+									<li>Computational scaling</li>
+								</ul>
+								<b>Graphs are an efficient alternative!</b>
 							</x-col>
 						</x-grid>
 					</section>
-				</section>
-				<section>
 					<section>
-						<h1>Data generation</h1>
-						<x-grid columns=3 ai="center">
-							<x-col>
-								<p>Uniform sampling in $\kappa$ with fixed $A$ constant</p>
-							</x-col>
-							<x-col>
-								<p>Rigid rotor Hamiltonian from SPCAT</p>
-							</x-col>
-							<x-col>
-								<p>230 graphs per second on Nvidia 3080</p>
-								<p>83,000 nodes, ~330,000 edges per batch (32 graphs)</p>
-								<p>$E, J, K_a, K_c$ embedded per node</p>
-							</x-col>
-						</x-grid>
+						<h1>Spectroscopic graphs</h1>
+						<figure>
+							<img src="assets/graphs/bipartite_structure.png" alt="">
+							<p>Energy nodes connected through transition nodes</p>
+						</figure>
+					</section>
+					<section>
+						<h1>Spectroscopic graphs</h1>
+						<figure>
+							<img src="assets/graphs/projected_structure.png" alt="">
+							<p>Energy nodes connected through transition edges</p>
+						</figure>
 					</section>
 					<section>
 						<h1>Graph neural networks</h1>
@@ -202,14 +175,49 @@
 						</x-grid>
 					</section>
 					<section>
-						<h1>Node embedding</h1>
+						<h1>Open questions</h1>
+						<x-grid columns=2>
+							<x-col>
+								<i>What can we/models learn from graph representations?</i>
+							</x-col>
+							<x-col>
+								<i>Can we reconstruct spectroscopic graphs from limited information?</i>
+							</x-col>
+						</x-grid>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Data generation</h1>
+						<x-grid columns=3 ai="center">
+							<x-col>
+								<p>10,000 rigid rotor spectra from SPCAT</p>
+							</x-col>
+							<x-col>
+								<p>Uniform sampling in $\kappa$ with scale invariant $A,B,C$</p>
+							</x-col>
+							<x-col>
+								<p>$E, J, K_a, K_c$ embedded per node</p>
+								<p>Can process 230 graphs per second on Nvidia 3070</p>
+								<p>83,000 nodes, ~330,000 edges per batch (32 full graphs)</p>
+							</x-col>
+						</x-grid>
+					</section>
+					<section>
+						<figure>
+							<img src="assets/graphs/graph_subsampling.png" alt="">
+							<figcaption>Model trained on subgraphs to extract local information and generalize to graphs</figcaption>
+						</figure>
+					</section>
+					<section>
+						<h1>Node learning</h1>
 						<figure>
 							<img src="assets/graphs/graph-convolution.png">
 							<figcaption><p>Aggregates information from up to <i>K</i> neighbors per node</p></figcaption>
 						</figure>
 					</section>
 					<section>
-						<h1>Graph regression</h1>
+						<h1>Graph learning</h1>
 						<x-grid columns=2 ai="center">
 							<x-col>
 								Collective information for entire graphs used to predict spectroscopic parameters
@@ -219,12 +227,6 @@
 								<figcaption><p>$\rightarrow A, B, C$</p></figcaption>
 							</x-col>
 						</x-grid>
-					</section>
-					<section>
-						<figure>
-							<img src="assets/graphs/graph_subsampling.png" alt="">
-							<figcaption>Model trained on subgraphs with missing edges</figcaption>
-						</figure>
 					</section>
 					<section>
 						<h1>Graph autoencoder</h1>
@@ -246,10 +248,11 @@
 						<p>What do graph neural networks learn from spectroscopic graphs?</p>
 					</section>
 					<section>
-						<h1>Unsupervised manifold learning</h1>
+						<h1 class="r-fit-text">Analyzing learned node/graph embeddings</h1>
 						<x-grid columns=2 ai="center">
 							<x-col>
-								<p>Topology preserving projection of high dimensional embeddings</p>
+								<p>Use Uniform Manifold Approximation and Projection (UMAP)</p>
+								<p>Topology preserving 2D projection of high dimensional embeddings</p>
 							</x-col>
 							<x-col>
 								<figure><img src="assets/graphs/umap-mammoth.png" alt="">
@@ -276,10 +279,18 @@
 							<x-col>
 								<ul>
 									<li>Relative locations of clusters</li>
-									<li>Smooth progressions</li>
 								</ul>
 							</x-col>
+							<x-col span=row>
+								<p>Analysis of prolate, oblate, and asymmetric top topology</p>
+							</x-col>
 						</x-grid>
+					</section>
+					<section>
+						<figure>
+							<img style="filter: grayscale(100%);" src="assets/graphs/tag-rigid-rotor-energy.png">
+							<figcaption><p>Graph layout differs with asymmetry: sparsity and boundaries</p></figcaption>
+						</figure>
 					</section>
 					<section>
 						<figure>
@@ -340,7 +351,7 @@
 							<x-col>
 								<p>Simple A/B testing indicates >95% ROC AUC score (i.e. correct linkage prediction 95% of the time)</p>
 								<p class="r-fit-text">Energy levels are incredibly sparse&mdash;not the true error!</p>
-								<p>Need to use dense adjacency training</p>
+								<p>Need to improve on edge training sample scheme</p>
 							</x-col>
 							<x-col>
 								<figure><img src="assets/graphs/tag-adjacency-prediction.png" alt=""></figure>
@@ -352,9 +363,9 @@
 					<section>
 						<h1>Conclusions</h1>
 						<hr class="full">
+						<p>Applying graph principles toward automating spectral analysis</p>
 						<p>Graph neural networks able to learn information-rich node and graph embeddings</p>
 						<p>Linkage prediction is far from accurate&mdash;need to revise training strategy</p>
-						<p>Applying graph principles toward automating spectral analysis</p>
 					</section>
 				</section>
 				<section>
